@@ -482,10 +482,11 @@ ul { list-style: none; }
   display: grid;
   place-items: center;
   color: #fff;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(18, 20, 32, 0.7);   /* dark so the white glyph stays visible over light images */
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 50%;
   cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
   transition: background 0.2s ease;
 }
 .cyl-lb-close { top: 16px; right: 16px; width: 44px; height: 44px; font-size: 1.25rem; }
@@ -493,7 +494,7 @@ ul { list-style: none; }
 .cyl-lb-nav.prev { left: 12px; }
 .cyl-lb-nav.next { right: 12px; }
 .cyl-lb-close:hover,
-.cyl-lb-nav:hover { background: rgba(255, 255, 255, 0.22); }
+.cyl-lb-nav:hover { background: rgba(18, 20, 32, 0.92); border-color: rgba(255, 255, 255, 0.55); }
 .cyl-lb-close:focus-visible,
 .cyl-lb-nav:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
@@ -501,7 +502,7 @@ ul { list-style: none; }
   .cyl-lightbox { padding: 3.5vh 0.75rem; }
   .cyl-lb-img { max-height: 58vh; }   /* smaller so image + caption both fit */
   .cyl-lb-close { top: 10px; right: 10px; width: 38px; height: 38px; font-size: 1.1rem; }
-  .cyl-lb-nav { width: 38px; height: 38px; font-size: 1.5rem; background: rgba(255, 255, 255, 0.18); }
+  .cyl-lb-nav { width: 38px; height: 38px; font-size: 1.5rem; background: rgba(18, 20, 32, 0.8); }
   .cyl-lb-nav.prev { left: 6px; }
   .cyl-lb-nav.next { right: 6px; }
   .cyl-lb-title { font-size: 1.1rem; }
