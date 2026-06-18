@@ -7,6 +7,8 @@ import CylinderGallery, { type CylinderPanel } from "./CylinderGallery";
 const LaunchIcon = () => <Icon name="launch" size={16} />;
 const CalIcon = () => <Icon name="calendar" size={16} />;
 const CheckIcon = () => <Icon name="check" size={16} />;
+const NetIcon = () => <Icon name="network" size={16} />;
+const SciIcon = () => <Icon name="science" size={16} />;
 
 const CALBRIT_PANELS: CylinderPanel[] = [
   {
@@ -29,6 +31,20 @@ const CALBRIT_PANELS: CylinderPanel[] = [
     title: "Weekly-Once Dosing",
     description: "One chewable tablet, once a week — simple adherence for sustained vitamin D.",
     Icon: CalIcon,
+  },
+  {
+    image: "/calbrit/p03.png",
+    alt: "Hydrox nanoparticle delivery system and absorption of Calbrit 60K",
+    title: "The Hydrox Platform",
+    description: "A nanoparticle delivery system for rapid dispersion and fat-independent absorption.",
+    Icon: NetIcon,
+  },
+  {
+    image: "/calbrit/p01.png",
+    alt: "Nanotechnology vs conventional D3 softgel clinical data",
+    title: "Nanoshots vs Softgel",
+    description: "Randomized crossover: +36% AUC and +43% Cmax advantage over conventional softgels.",
+    Icon: SciIcon,
   },
 ];
 
