@@ -253,6 +253,10 @@ ul { list-style: none; }
   font-size: 0.95rem; font-weight: 500;
 }
 .hero-chip svg { color: var(--red-bright); flex: none; }
+/* The venue chip is a link to the map — make it clearly interactive. */
+a.hero-chip { cursor: pointer; transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease; }
+a.hero-chip:hover { border-color: var(--red); background: rgba(225, 37, 27, 0.1); transform: translateY(-2px); }
+a.hero-chip:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.2rem; }
 /* On narrow screens the mascot sits lower-centre; keep hero copy crisp over it */
 @media (max-width: 820px) {
