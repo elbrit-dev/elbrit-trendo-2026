@@ -6,7 +6,6 @@ import Stats from "@/components/Stats";
 import Highlights from "@/components/Highlights";
 import Countdown from "@/components/Countdown";
 import Agenda from "@/components/Agenda";
-import Speakers from "@/components/Speakers";
 import Register from "@/components/Register";
 import Footer from "@/components/Footer";
 
@@ -22,7 +21,6 @@ export default function Page() {
         <Highlights />
         <Countdown />
         <Agenda />
-        <Speakers />
         <Register />
       </main>
       <Footer />

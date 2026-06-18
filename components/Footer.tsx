@@ -8,19 +8,20 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-col">
-            <ElbritLogo height={34} />
+            <ElbritLogo height={42} />
             <p>
               {EVENT.name} {EVENT.year} — {EVENT.edition}. {EVENT.tagline}.
             </p>
           </div>
 
-          <div className="footer-col">
+          <div className="footer-col footer-contact">
             <strong>Event</strong>
-            <p>
-              {EVENT.dateLabel}
-              <br />
-              {EVENT.venue}, {EVENT.city}
+            <p style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
+              <Icon name="calendar" size={15} /> Event date: {EVENT.dateLabel}
             </p>
+            <a href={EVENT.mapUrl} target="_blank" rel="noreferrer">
+              <Icon name="pin" size={15} /> {EVENT.venue}, {EVENT.city}
+            </a>
           </div>
 
           <div className="footer-col footer-contact">

@@ -50,10 +50,10 @@ export default function Hero() {
             <Icon name="calendar" size={18} />
             {EVENT.dateLabel}
           </span>
-          <span className="hero-chip">
+          <a className="hero-chip" href={EVENT.mapUrl} target="_blank" rel="noreferrer">
             <Icon name="pin" size={18} />
             {EVENT.venue}, {EVENT.city}
-          </span>
+          </a>
         </div>
 
         <div className="hero-cta">

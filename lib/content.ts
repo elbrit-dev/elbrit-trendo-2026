@@ -18,11 +18,13 @@ export const EVENT = {
   tagline: "Redefining Tomorrow in Healthcare", // PLACEHOLDER
   theme:
     "A landmark gathering of India's leading clinicians — science, innovation and the future of patient care, under one roof.", // PLACEHOLDER
-  // ISO date-time of day-1 start. Drives the live countdown. // PLACEHOLDER
-  startsAt: "2026-08-22T09:00:00+05:30",
-  dateLabel: "22–24 August 2026", // PLACEHOLDER
-  venue: "ITC Grand Chola", // PLACEHOLDER
-  city: "Chennai, India", // PLACEHOLDER
+  // ISO date-time of day-1 start. Drives the live countdown.
+  startsAt: "2026-06-19T09:00:00+05:30",
+  dateLabel: "June 19 to June 21, 2026",
+  venue: "Hotel Radisson",
+  city: "Salem, Tamil Nadu",
+  // Google Maps link for the venue (opens the location when clicked).
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=Radisson+Hotel+Salem+Tamil+Nadu",
 };
 
 /** Headline stats shown as animated counters. */
@@ -100,7 +102,7 @@ export const SPEAKERS = [
 ];
 
 export const CONTACT = {
-  email: "trendo@elbrit.org", // PLACEHOLDER
-  phone: "+91 00000 00000", // PLACEHOLDER
+  email: "hr@elbrit.org",
+  phone: "+91 73584 19644",
   website: "https://www.elbrit.org",
 };

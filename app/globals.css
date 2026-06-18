@@ -94,16 +94,16 @@ ul { list-style: none; }
 .elbrit-logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.5em;
   line-height: 1;
+  background: #fff;
+  padding: 0.4rem 0.7rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
-.elbrit-word {
-  font-family: var(--font-display), sans-serif;
-  font-weight: 800;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
+.elbrit-logo img {
+  display: block;
+  width: auto;
 }
-.elbrit-i { color: var(--red); }
 
 /* ─── Buttons ───────────────────────────────────────────── */
 .btn {
@@ -317,6 +317,167 @@ ul { list-style: none; }
 .session { display: flex; gap: 1rem; padding: 0.7rem 0; }
 .session .time { color: var(--gold); font-weight: 600; font-variant-numeric: tabular-nums; flex: none; width: 52px; font-size: 0.9rem; }
 .session .what { color: var(--txt); font-size: 0.96rem; }
+
+/* ─── 3D cylinder gallery ───────────────────────────────────
+   NB: --radius here is the cylinder radius, scoped to .cyl-viewport so it
+   shadows the global --radius (16px) token for everything inside the ring. */
+.cyl-viewport {
+  /* Mobile-first: front card fits inside the ~328px content width with margin. */
+  --radius: 250px;
+  --card-w: 236px;
+  --card-h: 366px;
+  position: relative;
+  width: 100%;
+  height: calc(var(--card-h) + 120px);
+  margin-top: 2.8rem;
+  perspective: 2200px;
+  touch-action: pan-y;        /* let the page scroll vertically; we own horizontal */
+  user-select: none;
+  cursor: grab;
+}
+.cyl-viewport:active { cursor: grabbing; }
+@media (min-width: 640px) {
+  .cyl-viewport { --radius: 430px; --card-w: 320px; --card-h: 488px; }
+}
+
+.cyl-ring {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: var(--card-w);
+  height: var(--card-h);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.cyl-card {
+  position: absolute;
+  inset: 0;
+  width: var(--card-w);
+  height: var(--card-h);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--panel);
+  border: 1px solid var(--stroke);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  will-change: opacity;
+}
+.cyl-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.cyl-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.cyl-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 2.4rem 0.85rem 0.85rem;
+  background: linear-gradient(to top, rgba(5, 6, 15, 0.94) 0%, rgba(5, 6, 15, 0.62) 48%, transparent 100%);
+}
+.cyl-badge {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+}
+.cyl-badge svg { width: 16px; height: 16px; }
+.cyl-text { min-width: 0; }
+.cyl-title { font-size: 0.95rem; font-weight: 700; color: #fff; line-height: 1.2; }
+.cyl-desc {
+  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.78);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.35s ease, max-height 0.35s ease;
+}
+.cyl-card.active .cyl-desc { opacity: 1; max-height: 140px; }
+
+.cyl-hint {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--txt-faint);
+  letter-spacing: 0.02em;
+}
+
+.cyl-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+  flex-wrap: wrap;
+}
+.cyl-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 0;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+.cyl-dot.active { width: 26px; background: var(--red); }
+.cyl-dot:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+/* ─── Lightbox ─── */
+.cyl-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 4vh 3vw;
+  background: rgba(4, 5, 12, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  perspective: 1600px;
+}
+.cyl-lb-img {
+  max-width: min(92vw, 720px);
+  max-height: 88vh;
+  border-radius: 14px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  cursor: grab;
+  object-fit: contain;
+}
+.cyl-lb-img:active { cursor: grabbing; }
+.cyl-lb-close,
+.cyl-lb-nav {
+  position: fixed;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.cyl-lb-close { top: 18px; right: 20px; width: 44px; height: 44px; font-size: 1.25rem; }
+.cyl-lb-nav { top: 50%; transform: translateY(-50%); width: 50px; height: 50px; font-size: 2rem; line-height: 1; }
+.cyl-lb-nav.prev { left: 16px; }
+.cyl-lb-nav.next { right: 16px; }
+.cyl-lb-close:hover,
+.cyl-lb-nav:hover { background: rgba(255, 255, 255, 0.22); }
+.cyl-lb-close:focus-visible,
+.cyl-lb-nav:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
 /* ─── Speakers ──────────────────────────────────────────── */
 .speakers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-top: 3rem; }

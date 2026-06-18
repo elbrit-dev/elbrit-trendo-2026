@@ -183,6 +183,13 @@ export default function Scene3D() {
         if (!res.ok) return;
         new THREE.TextureLoader().load("/mascot.png", (tex) => {
           tex.colorSpace = THREE.SRGBColorSpace;
+          // Sharpen: max anisotropic filtering + trilinear mipmaps so the
+          // mascot stays crisp when the plane is large or tilted.
+          tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+          tex.minFilter = THREE.LinearMipmapLinearFilter;
+          tex.magFilter = THREE.LinearFilter;
+          tex.generateMipmaps = true;
+          tex.needsUpdate = true;
           mascotMat.map = tex;
           mascotMat.needsUpdate = true;
           const img = tex.image as HTMLImageElement;
