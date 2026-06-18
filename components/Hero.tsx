@@ -62,7 +62,7 @@ export default function Hero() {
             <Icon name="arrow" size={18} />
           </a>
           <a href="#agenda" className="btn btn-ghost">
-            Explore the Agenda
+            Explore our Product
           </a>
         </div>
       </div>

@@ -181,7 +181,7 @@ export default function CylinderGallery({ panels, speed = 16 }: CylinderGalleryP
 
   const openLightbox = (i: number) => {
     if (draggedRef.current) return; // it was a drag, not a real tap
-    if (performance.now() - pressStartRef.current > 350) return; // long-press → don't open
+    if (performance.now() - pressStartRef.current > 600) return; // only a held long-press is ignored
     setLightboxIndex(i);
   };
 
@@ -314,25 +314,33 @@ export default function CylinderGallery({ panels, speed = 16 }: CylinderGalleryP
               ‹
             </button>
 
-            <motion.img
-              key={lightboxIndex}
-              className="cyl-lb-img"
-              src={panels[lightboxIndex].image}
-              alt={panels[lightboxIndex].alt}
-              draggable={false}
-              onClick={(e) => e.stopPropagation()}
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.4}
-              onDragEnd={(_, info) => {
-                if (info.offset.x < -80) step(1);
-                else if (info.offset.x > 80) step(-1);
-              }}
-              initial={{ opacity: 0, scale: 0.82, rotateX: -18, rotateY: 22 }}
-              animate={{ opacity: 1, scale: 1, rotateX: 0, rotateY: 0 }}
-              exit={{ opacity: 0, scale: 0.85 }}
-              transition={{ type: "spring", stiffness: 260, damping: 22 }}
-            />
+            <div className="cyl-lb-content" onClick={(e) => e.stopPropagation()}>
+              <motion.img
+                key={lightboxIndex}
+                className="cyl-lb-img"
+                src={panels[lightboxIndex].image}
+                alt={panels[lightboxIndex].alt}
+                draggable={false}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.4}
+                onDragEnd={(_, info) => {
+                  if (info.offset.x < -80) step(1);
+                  else if (info.offset.x > 80) step(-1);
+                }}
+                initial={{ opacity: 0, scale: 0.82, rotateX: -18, rotateY: 22 }}
+                animate={{ opacity: 1, scale: 1, rotateX: 0, rotateY: 0 }}
+                exit={{ opacity: 0, scale: 0.85 }}
+                transition={{ type: "spring", stiffness: 260, damping: 22 }}
+              />
+              <div className="cyl-lb-caption">
+                <h3 className="cyl-lb-title">{panels[lightboxIndex].title}</h3>
+                <p className="cyl-lb-desc">{panels[lightboxIndex].description}</p>
+                <span className="cyl-lb-count">
+                  {lightboxIndex + 1} / {count}
+                </span>
+              </div>
+            </div>
 
             <button
               type="button"
