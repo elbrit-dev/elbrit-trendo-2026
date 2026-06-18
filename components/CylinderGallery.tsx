@@ -58,6 +58,7 @@ export default function CylinderGallery({ panels, speed = 16 }: CylinderGalleryP
   const dragStartXRef = useRef(0);
   const dragStartYRef = useRef(0);
   const dragStartRotRef = useRef(0);
+  const pressStartRef = useRef(0); // pointerdown time → distinguishes a tap from a long-press
 
   // Detect (and track) the reduced-motion preference.
   useEffect(() => {
@@ -140,6 +141,7 @@ export default function CylinderGallery({ panels, speed = 16 }: CylinderGalleryP
   const onPointerDown = (e: React.PointerEvent) => {
     interactingRef.current = true;
     draggedRef.current = false;
+    pressStartRef.current = performance.now();
     dragStartXRef.current = e.clientX;
     dragStartYRef.current = e.clientY;
     dragStartRotRef.current = rotationRef.current;
@@ -179,6 +181,7 @@ export default function CylinderGallery({ panels, speed = 16 }: CylinderGalleryP
 
   const openLightbox = (i: number) => {
     if (draggedRef.current) return; // it was a drag, not a real tap
+    if (performance.now() - pressStartRef.current > 350) return; // long-press → don't open
     setLightboxIndex(i);
   };
 

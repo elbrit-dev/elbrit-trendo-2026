@@ -544,10 +544,11 @@ ul { list-style: none; }
 .rf-wrap { max-width: 760px; margin: 0 auto; }
 .rf-head { text-align: center; }
 .rf-head .section-title { margin-bottom: 0; }
-.rf-card { padding: clamp(1.5rem, 3.5vw, 2.6rem); }
-.rf-card-head { margin-bottom: 1.5rem; }
-.rf-card-title { font-size: 1.4rem; font-weight: 700; line-height: 1.2; }
-.rf-card-sub { margin-top: 0.35rem; font-size: 0.95rem; color: var(--txt-mute); }
+.rf-card { padding: clamp(1.5rem, 3.5vw, 2.6rem); background: rgba(12, 15, 27, 0.9); border-color: var(--stroke-strong); }
+.rf-card-head { margin-bottom: 1.6rem; }
+.rf-card-title { font-size: 1.7rem; font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; }
+@media (min-width: 640px) { .rf-card-title { font-size: 1.9rem; } }
+.rf-card-sub { margin-top: 0.4rem; font-size: 0.95rem; color: var(--txt-mute); }
 
 @keyframes rf-spin { to { transform: rotate(360deg); } }
 .rf-spin { animation: rf-spin 0.7s linear infinite; }
@@ -555,8 +556,8 @@ ul { list-style: none; }
 /* Question */
 .rf-q-head { display: flex; align-items: baseline; gap: 0.5rem; }
 .rf-q-index { font-size: 0.85rem; font-weight: 700; color: var(--red-bright); flex: none; }
-.rf-q-title { font-size: 1.3rem; font-weight: 700; line-height: 1.25; }
-@media (min-width: 640px) { .rf-q-title { font-size: 1.55rem; } }
+.rf-q-title { font-size: 1.15rem; font-weight: 700; line-height: 1.3; }
+@media (min-width: 640px) { .rf-q-title { font-size: 1.3rem; } }
 .rf-q-hint { margin-top: 0.5rem; font-size: 0.9rem; color: var(--txt-mute); }
 .rf-q-body { margin-top: 1.5rem; }
 
@@ -605,7 +606,7 @@ ul { list-style: none; }
 .rf-option {
   display: flex; align-items: center; gap: 0.7rem; cursor: pointer;
   border: 1px solid var(--stroke); border-radius: 10px; padding: 0.7rem 0.9rem;
-  font-size: 0.95rem; color: var(--txt); background: rgba(255, 255, 255, 0.025);
+  font-size: 0.95rem; color: var(--txt); background: rgba(255, 255, 255, 0.06);
   transition: border-color 0.18s ease, background 0.18s ease;
 }
 .rf-option:hover { border-color: var(--stroke-strong); }
