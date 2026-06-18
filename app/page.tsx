@@ -6,7 +6,7 @@ import Stats from "@/components/Stats";
 import Highlights from "@/components/Highlights";
 import Countdown from "@/components/Countdown";
 import Agenda from "@/components/Agenda";
-import Register from "@/components/Register";
+import RegistrationForm from "@/components/form/RegistrationForm";
 import Footer from "@/components/Footer";
 
 export default function Page() {
@@ -21,7 +21,7 @@ export default function Page() {
         <Highlights />
         <Countdown />
         <Agenda />
-        <Register />
+        <RegistrationForm />
       </main>
       <Footer />
     </>

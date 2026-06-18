@@ -56,7 +56,7 @@ export default function Agenda() {
           <span className="eyebrow">The product</span>
           <h2 className="section-title">Calbrit 60K</h2>
           <p className="section-sub">
-            Cholecalciferol 60000 IU in a convenient weekly-once chewable form — powered by Hydrox nano technology.
+            Powered by the Hydrox platform&apos;s nanoparticle delivery technology — a convenient, mint-flavoured chewable tablet with weekly-once dosing that replenishes vitamin D levels.
           </p>
         </div>
 
