@@ -210,10 +210,10 @@ export default function Scene3D() {
     let mascotBaseY = 0;
     const layout = () => {
       const portrait = window.innerWidth < 820;
-      const H = portrait ? 5.6 : 8.4;
+      const H = portrait ? 6.2 : 9.8;
       mascot.geometry.dispose();
       mascot.geometry = new THREE.PlaneGeometry(H * mascotAspect, H);
-      mascot.position.x = portrait ? 0 : 3.0;
+      mascot.position.x = portrait ? 0 : 3.7;
       mascotBaseY = portrait ? -2.9 : 0;
       mascot.position.y = mascotBaseY;
       mascot.position.z = portrait ? -1.2 : 0;

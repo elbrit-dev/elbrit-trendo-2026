@@ -96,8 +96,8 @@ ul { list-style: none; }
   align-items: center;
   line-height: 1;
   background: #fff;
-  padding: 0.4rem 0.7rem;
-  border-radius: 10px;
+  padding: 0.32rem 0.55rem;
+  border-radius: 9px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 .elbrit-logo img {

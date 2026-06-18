@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-col">
-            <ElbritLogo height={42} />
+            <ElbritLogo height={32} />
             <p>
               {EVENT.name} {EVENT.year} — {EVENT.edition}. {EVENT.tagline}.
             </p>

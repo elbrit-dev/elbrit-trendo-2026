@@ -5,7 +5,7 @@ import ElbritLogo from "./ElbritLogo";
 
 const LINKS = [
   { href: "#about", label: "About" },
-  { href: "#agenda", label: "Agenda" },
+  { href: "#agenda", label: "Calbrit 60K" },
   { href: "#register", label: "Register" },
 ];
 
@@ -30,7 +30,7 @@ export default function Nav() {
     <header className={`nav${scrolled ? " scrolled" : ""}`}>
       <div className="nav-inner">
         <a href="#top" aria-label="Elbrit Trendo 2026 home">
-          <ElbritLogo height={42} />
+          <ElbritLogo height={28} />
         </a>
         <nav className="nav-links">
           {LINKS.map((l) => (
