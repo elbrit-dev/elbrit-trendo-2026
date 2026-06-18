@@ -167,10 +167,26 @@ export default function CylinderGallery({ panels, speed = 16 }: CylinderGalleryP
     if (!interactingRef.current) return;
     interactingRef.current = false;
     lastInteractRef.current = performance.now();
+
+    // Was this a real click? Tiny movement (< 8px) AND a quick press (< 300ms).
+    // A drag/swipe or a long-press fails this and never opens the lightbox.
+    const isClick = movedRef.current < 8 && performance.now() - pressStartRef.current < 300;
+
     try {
       viewportRef.current?.releasePointerCapture(e.pointerId);
     } catch {
       /* pointer already released */
+    }
+
+    // We resolve the tap here (not via card onClick) because the viewport holds
+    // the pointer capture, which would otherwise swallow the card's click event.
+    if (isClick) {
+      const el = document.elementFromPoint(e.clientX, e.clientY);
+      const card = el?.closest<HTMLElement>("[data-cyl-index]");
+      if (card?.dataset.cylIndex != null) {
+        const idx = Number(card.dataset.cylIndex);
+        if (!Number.isNaN(idx)) setLightboxIndex(idx);
+      }
     }
   };
 
@@ -184,14 +200,6 @@ export default function CylinderGallery({ panels, speed = 16 }: CylinderGalleryP
     },
     [slice]
   );
-
-  // Open only on a REAL click: tiny movement (< 8px) AND a quick press (< 300ms).
-  // A drag/swipe (moves more) or a long-press (held longer) never opens the lightbox.
-  const openLightbox = (i: number) => {
-    if (movedRef.current < 8 && performance.now() - pressStartRef.current < 300) {
-      setLightboxIndex(i);
-    }
-  };
 
   const step = useCallback(
     (dir: 1 | -1) =>
@@ -239,10 +247,10 @@ export default function CylinderGallery({ panels, speed = 16 }: CylinderGalleryP
                 }}
                 className={`cyl-card${i === activeIndex ? " active" : ""}`}
                 style={{ transform: `rotateY(${i * slice}deg) translateZ(var(--radius))` }}
+                data-cyl-index={i}
                 role="button"
                 tabIndex={0}
                 aria-label={`${p.title} — open image`}
-                onClick={() => openLightbox(i)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
