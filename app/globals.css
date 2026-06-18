@@ -503,7 +503,7 @@ ul { list-style: none; }
 .register { position: relative; }
 .register-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
 @media (max-width: 880px) { .register-grid { grid-template-columns: 1fr; } }
-.register-copy h2 { font-size: clamp(1.9rem, 4.4vw, 3rem); margin-bottom: 1rem; }
+.register-copy h2 { font-size: clamp(1.6rem, 3.2vw, 2.3rem); margin-bottom: 1rem; }
 .register-perks { margin-top: 1.6rem; display: flex; flex-direction: column; gap: 0.8rem; }
 .register-perks li { display: flex; gap: 0.7rem; color: var(--txt-mute); }
 .register-perks svg { color: var(--red-bright); flex: none; margin-top: 3px; }

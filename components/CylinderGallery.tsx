@@ -39,7 +39,7 @@ export default function CylinderGallery({ panels, speed = 16 }: CylinderGalleryP
   const lastTimeRef = useRef<number | null>(null);
   const interactingRef = useRef(false); // pointer is currently down
   const lastInteractRef = useRef(0); // timestamp (ms) of the last interaction
-  const draggedRef = useRef(false); // pointer moved past the click threshold
+  const movedRef = useRef(0); // total pointer travel (px) since pointerdown
   const snapRef = useRef<{ active: boolean; goal: number }>({ active: false, goal: 0 });
   const reducedRef = useRef(false); // prefers-reduced-motion
   const lightboxOpenRef = useRef(false);
@@ -59,6 +59,8 @@ export default function CylinderGallery({ panels, speed = 16 }: CylinderGalleryP
   const dragStartYRef = useRef(0);
   const dragStartRotRef = useRef(0);
   const pressStartRef = useRef(0); // pointerdown time → distinguishes a tap from a long-press
+  const lastXRef = useRef(0); // last pointer X, for incremental travel
+  const lastYRef = useRef(0);
 
   // Detect (and track) the reduced-motion preference.
   useEffect(() => {
@@ -140,10 +142,12 @@ export default function CylinderGallery({ panels, speed = 16 }: CylinderGalleryP
   // ── Pointer drag / swipe to rotate ──
   const onPointerDown = (e: React.PointerEvent) => {
     interactingRef.current = true;
-    draggedRef.current = false;
+    movedRef.current = 0;
     pressStartRef.current = performance.now();
     dragStartXRef.current = e.clientX;
     dragStartYRef.current = e.clientY;
+    lastXRef.current = e.clientX;
+    lastYRef.current = e.clientY;
     dragStartRotRef.current = rotationRef.current;
     snapRef.current.active = false; // cancel any in-flight snap
     viewportRef.current?.setPointerCapture(e.pointerId);
@@ -152,8 +156,10 @@ export default function CylinderGallery({ panels, speed = 16 }: CylinderGalleryP
   const onPointerMove = (e: React.PointerEvent) => {
     if (!interactingRef.current) return;
     const dx = e.clientX - dragStartXRef.current;
-    const dy = e.clientY - dragStartYRef.current;
-    if (Math.abs(dx) > 6 || Math.abs(dy) > 6) draggedRef.current = true;
+    // Accumulate total travel (x + y) since pointerdown for click-vs-drag detection.
+    movedRef.current += Math.abs(e.clientX - lastXRef.current) + Math.abs(e.clientY - lastYRef.current);
+    lastXRef.current = e.clientX;
+    lastYRef.current = e.clientY;
     rotationRef.current = dragStartRotRef.current + dx * 0.3; // drag sensitivity
   };
 
@@ -179,10 +185,12 @@ export default function CylinderGallery({ panels, speed = 16 }: CylinderGalleryP
     [slice]
   );
 
+  // Open only on a REAL click: tiny movement (< 8px) AND a quick press (< 300ms).
+  // A drag/swipe (moves more) or a long-press (held longer) never opens the lightbox.
   const openLightbox = (i: number) => {
-    if (draggedRef.current) return; // it was a drag, not a real tap
-    if (performance.now() - pressStartRef.current > 600) return; // only a held long-press is ignored
-    setLightboxIndex(i);
+    if (movedRef.current < 8 && performance.now() - pressStartRef.current < 300) {
+      setLightboxIndex(i);
+    }
   };
 
   const step = useCallback(
