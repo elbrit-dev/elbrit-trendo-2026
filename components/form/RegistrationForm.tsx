@@ -10,10 +10,10 @@ type Phase = "gate" | "hcp" | "public";
 type Status = "idle" | "success";
 
 const PERKS = [
-  "Free delegate pass for verified doctors",
-  "CME-oriented scientific sessions across specialities",
-  "Networking with 1,200+ fellow clinicians",
-  "Priority updates on agenda, speakers & travel",
+  "Connect directly with your dedicated Elbrit MR",
+  "A first look at our latest endocrine range",
+  "Personalised product information for your practice",
+  "Priority follow-up and ongoing support",
 ];
 
 export default function RegistrationForm() {
@@ -26,11 +26,12 @@ export default function RegistrationForm() {
       <div className="container">
         <div className="register-grid">
           <div className="register-copy reveal">
-            <span className="eyebrow">Registration</span>
-            <h2>Claim your seat at Trendo 2026</h2>
+            <span className="eyebrow">We&apos;d love your support</span>
+            <h2>Lend Elbrit your support at this year&apos;s endocrine conference</h2>
             <p className="section-sub">
-              Passes are limited and reserved for registered medical practitioners. Tell us a little
-              about you and our team will confirm your delegate pass.
+              Behind every Elbrit product is a doctor we&apos;re grateful to work with. Register to
+              support us at the conference, and your dedicated representative will reach out to
+              arrange your visit and share our latest range.
             </p>
             <ul className="register-perks">
               {PERKS.map((p) => (
