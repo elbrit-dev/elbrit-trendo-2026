@@ -58,7 +58,7 @@ export default function Hero() {
 
         <div className="hero-cta">
           <a href="#register" className="btn btn-primary">
-            Reserve Your Visit · 60 seconds
+            Reserve Your Visit
             <Icon name="arrow" size={18} />
           </a>
           <a href="#agenda" className="btn btn-ghost">

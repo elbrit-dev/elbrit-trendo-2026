@@ -15,35 +15,35 @@ const CALBRIT_PANELS: CylinderPanel[] = [
     image: "/calbrit/p07.png",
     alt: "Calbrit 60K powered by the Hydrox platform",
     title: "Powered by Hydrox",
-    description: "Advanced nano-delivery in a convenient, easy-to-take chewable form.",
+    description: "Advanced nano-delivery in an easy chewable form.",
     Icon: LaunchIcon,
   },
   {
     image: "/calbrit/p02.png",
     alt: "Calbrit 60K nano chewable form",
     title: "Nano, Made Chewable",
-    description: "A convenient, weekly-once chewable form for everyday wellness.",
+    description: "Weekly-once convenience for everyday wellness.",
     Icon: CheckIcon,
   },
   {
     image: "/calbrit/p06.png",
     alt: "Calbrit 60K weekly-once chewable pack",
     title: "Weekly-Once Dosing",
-    description: "One chewable tablet, once a week — simple, consistent dosing.",
+    description: "One tablet. Once a week. Simple.",
     Icon: CalIcon,
   },
   {
     image: "/calbrit/p03.png",
     alt: "Hydrox nanoparticle delivery platform",
     title: "The Hydrox Platform",
-    description: "A nanoparticle delivery system for rapid dispersion and efficient absorption.",
+    description: "Rapid dispersion. Efficient absorption.",
     Icon: NetIcon,
   },
   {
     image: "/calbrit/p01.png",
     alt: "Absorption study comparison",
     title: "Proven Absorption",
-    description: "Markedly higher absorption and exposure versus conventional alternatives in a randomized study.",
+    description: "Markedly higher exposure vs. conventional alternatives.",
     Icon: SciIcon,
   },
 ];
@@ -53,10 +53,10 @@ export default function Agenda() {
     <section className="section" id="agenda">
       <div className="container">
         <div className="reveal">
-          <span className="eyebrow">The product</span>
-          <h2 className="section-title">Calbrit 60K</h2>
+          <span className="eyebrow">Calbrit 60K</span>
+          <h2 className="section-title">Come taste the future of Vitamin D.</h2>
           <p className="section-sub">
-            Powered by the Hydrox platform&apos;s nanoparticle delivery technology — a convenient, mint-flavoured chewable tablet with weekly-once dosing that replenishes vitamin D levels.
+            Chewable. Weekly. Mint on the tongue. Powered by Hydrox — Elbrit&apos;s nano-delivery breakthrough. Try it at our stall — the data surprised even us.
           </p>
         </div>
 

@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
 import Highlights from "@/components/Highlights";
+import WhyVisit from "@/components/WhyVisit";
 import Countdown from "@/components/Countdown";
 import Agenda from "@/components/Agenda";
 import RegistrationForm from "@/components/form/RegistrationForm";
@@ -19,6 +20,7 @@ export default function Page() {
         <Hero />
         <Stats />
         <Highlights />
+        <WhyVisit />
         <Countdown />
         <Agenda />
         <RegistrationForm />
