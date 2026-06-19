@@ -220,9 +220,10 @@ ul { list-style: none; }
   border-radius: 999px;
   background: var(--panel-2);
   border: 1px solid var(--stroke-strong);
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--txt-mute);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--txt);
   margin-bottom: 1.6rem;
   backdrop-filter: blur(8px);
 }
@@ -321,6 +322,32 @@ ul { list-style: none; }
 .session { display: flex; gap: 1rem; padding: 0.7rem 0; }
 .session .time { color: var(--gold); font-weight: 600; font-variant-numeric: tabular-nums; flex: none; width: 52px; font-size: 0.9rem; }
 .session .what { color: var(--txt); font-size: 0.96rem; }
+
+/* ─── Calbrit key points ────────────────────────────────── */
+.calbrit-points {
+  max-width: 760px;
+  margin: 2.4rem auto 0;
+  display: grid;
+  gap: 0.85rem;
+}
+.calbrit-points li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 1.02rem;
+  line-height: 1.5;
+  color: var(--txt-mute);
+}
+.calbrit-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--red);
+}
+.calbrit-points strong { color: var(--txt); font-weight: 700; }
 
 /* ─── 3D cylinder gallery ───────────────────────────────────
    NB: --radius here is the cylinder radius, scoped to .cyl-viewport so it

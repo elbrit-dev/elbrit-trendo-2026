@@ -3,7 +3,6 @@ import ScrollReveals from "@/components/ScrollReveals";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
-import Highlights from "@/components/Highlights";
 import WhyVisit from "@/components/WhyVisit";
 import Countdown from "@/components/Countdown";
 import Agenda from "@/components/Agenda";
@@ -19,7 +18,6 @@ export default function Page() {
       <main className="page">
         <Hero />
         <Stats />
-        <Highlights />
         <WhyVisit />
         <Countdown />
         <Agenda />

@@ -9,9 +9,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-col">
             <ElbritLogo height={32} />
-            <p>
-              {EVENT.name} {EVENT.year} — {EVENT.edition}. {EVENT.tagline}.
-            </p>
+            <p>Elbrit. Find us. Feel the future.</p>
           </div>
 
           <div className="footer-col footer-contact">
@@ -39,7 +37,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <span>© {EVENT.year} Elbrit Life Sciences. All rights reserved.</span>
+          <span>© {EVENT.year} Elbrit Life Sciences.</span>
           <span>For registered medical practitioners only.</span>
         </div>
       </div>

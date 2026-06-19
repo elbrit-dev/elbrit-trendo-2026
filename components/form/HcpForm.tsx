@@ -9,7 +9,6 @@ import {
   TITLES,
   SPECIALIZATIONS,
   CLINICAL_INTERESTS,
-  PRODUCTS_OF_INTEREST,
   REQUESTS,
 } from "./schema";
 import { Field, OptionGroup, fieldClass, selectClass } from "./ui";
@@ -233,22 +232,6 @@ export default function HcpForm({
               </Field>
             </div>
           )}
-          <div className="rf-mt-lg">
-            <fieldset className="rf-fieldset">
-              <legend className="rf-label">Products of interest</legend>
-              <div className="rf-options cols-2">
-                {PRODUCTS_OF_INTEREST.map((p) => (
-                  <label key={p.name} className="rf-option rf-product">
-                    <input type="checkbox" value={p.name} {...register("products")} className="rf-check" />
-                    <span className="rf-product-text">
-                      <span className="rf-product-name">{p.name}</span>
-                      <span className="rf-product-mol">{p.molecule}</span>
-                    </span>
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-          </div>
         </Question>
       ),
     },

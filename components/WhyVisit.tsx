@@ -11,7 +11,7 @@ const VISIT: { icon: IconName; title: string; body: string }[] = [
 
 export default function WhyVisit() {
   return (
-    <section className="section">
+    <section className="section" id="about">
       <div className="container">
         <div className="reveal">
           <span className="eyebrow">Why visit</span>

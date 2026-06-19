@@ -63,6 +63,14 @@ export default function Agenda() {
         <div className="reveal">
           <CylinderGallery panels={CALBRIT_PANELS} />
         </div>
+
+        <ul className="calbrit-points reveal">
+          {CALBRIT_PANELS.map((p) => (
+            <li key={p.title}>
+              <strong>{p.title}</strong> — {p.description}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
