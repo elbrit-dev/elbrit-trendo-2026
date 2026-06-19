@@ -66,16 +66,6 @@ export default function RegistrationForm() {
                   </motion.div>
                   <h3>Thank you</h3>
                   <p>Your details have been received. Our team will reach out within 2 business days.</p>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setStatus("idle");
-                      setPhase("gate");
-                    }}
-                    className="rf-restart"
-                  >
-                    Submit another response
-                  </button>
                 </motion.div>
               ) : phase === "gate" ? (
                 <motion.div
