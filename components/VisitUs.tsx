@@ -12,14 +12,15 @@ export default function VisitUs() {
           </span>
           <h2 className="section-title">Find our stall on the floor</h2>
           <p className="section-sub" style={{ marginLeft: "auto", marginRight: "auto" }}>
-            TRENDO 2026 · Hotel Radisson, Salem. Here&apos;s the floor plan — come say hello.
+            TRENDO 2026 · Hotel Radisson, Salem. Find us @{" "}
+            <strong style={{ color: "var(--gold)" }}>Stall No. 2</strong> — come say hello.
           </p>
         </div>
 
         <div className="floor-plan reveal">
           <img
-            src="/floor-plan.jpg"
-            alt="TRENDO 2026 venue floor plan showing the stall layout"
+            src="/floor-plan.png"
+            alt="TRENDO 2026 venue floor plan — Elbrit at Stall No. 2"
             loading="lazy"
           />
         </div>
