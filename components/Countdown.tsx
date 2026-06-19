@@ -33,19 +33,20 @@ export default function Countdown() {
     { label: "Seconds", value: parts?.secs ?? null },
   ];
 
-  const isLive = parts !== null && parts.days + parts.hours + parts.mins + parts.secs === 0;
-
   return (
     <section className="section">
       <div className="container">
         <div className="countdown-wrap reveal">
           <div>
             <span className="eyebrow" style={{ justifyContent: "center", display: "flex" }}>
-              Save the date
+              Countdown
             </span>
             <h2 className="section-title" style={{ textAlign: "center" }}>
-              {isLive ? "Trendo 2026 is live!" : "Counting down to Trendo 2026"}
+              The floor opens in…
             </h2>
+            <p className="section-sub" style={{ textAlign: "center" }}>
+              Your spot at our stall is closer than you think.
+            </p>
           </div>
           <div className="countdown">
             {units.map((u) => (
@@ -57,9 +58,6 @@ export default function Countdown() {
               </div>
             ))}
           </div>
-          <p className="section-sub" style={{ textAlign: "center" }}>
-            {EVENT.dateLabel} · {EVENT.venue}, {EVENT.city}
-          </p>
         </div>
       </div>
     </section>
