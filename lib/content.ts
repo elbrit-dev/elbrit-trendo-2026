@@ -15,9 +15,8 @@ export const EVENT = {
   name: "TRENDO",
   year: "2026",
   edition: "The Annual Elbrit Conclave", // PLACEHOLDER
-  tagline: "Redefining Tomorrow in Healthcare", // PLACEHOLDER
-  theme:
-    "A landmark gathering of India's leading clinicians — science, innovation and the future of patient care, under one roof.", // PLACEHOLDER
+  tagline: "Find us on the floor.",
+  theme: "One stall. Our latest breakthrough. A conversation worth the walk.",
   // ISO date-time of day-1 start. Drives the live countdown.
   startsAt: "2026-06-19T09:00:00+05:30",
   dateLabel: "June 19 to June 21, 2026",

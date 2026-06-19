@@ -30,7 +30,7 @@ export default function Hero() {
       <div className="hero-inner">
         <span className="hero-badge">
           <span className="dot" />
-          {EVENT.brand} presents · {EVENT.edition}
+          {EVENT.brand} participates in
         </span>
 
         <h1 className="hero-title">
@@ -58,11 +58,11 @@ export default function Hero() {
 
         <div className="hero-cta">
           <a href="#register" className="btn btn-primary">
-            Register as a Doctor
+            Reserve Your Visit · 60 seconds
             <Icon name="arrow" size={18} />
           </a>
           <a href="#agenda" className="btn btn-ghost">
-            Explore our Product
+            See what&apos;s waiting
           </a>
         </div>
       </div>

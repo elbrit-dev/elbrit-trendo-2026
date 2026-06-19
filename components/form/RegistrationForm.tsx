@@ -26,12 +26,11 @@ export default function RegistrationForm() {
       <div className="container">
         <div className="register-grid">
           <div className="register-copy reveal">
-            <span className="eyebrow">We&apos;d love your support</span>
-            <h2>Lend Elbrit your support at this year&apos;s endocrine conference</h2>
+            <span className="eyebrow">Register</span>
+            <h2>Don&apos;t just attend. Visit Elbrit.</h2>
             <p className="section-sub">
-              Behind every Elbrit product is a doctor we&apos;re grateful to work with. Register to
-              support us at the conference, and your dedicated representative will reach out to
-              arrange your visit and share our latest range.
+              Register, and your dedicated Elbrit MR will arrange your stall visit. For registered
+              medical practitioners. Takes under a minute.
             </p>
             <ul className="register-perks">
               {PERKS.map((p) => (
