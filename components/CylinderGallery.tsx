@@ -330,7 +330,7 @@ export default function CylinderGallery({ panels, speed = 16 }: CylinderGalleryP
               ‹
             </button>
 
-            <div className="cyl-lb-content" onClick={(e) => e.stopPropagation()}>
+            <div className="cyl-lb-content">
               <motion.img
                 key={lightboxIndex}
                 className="cyl-lb-img"
